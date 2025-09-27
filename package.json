@@ -1,0 +1,14 @@
+{
+  "name": "blog-summary-ai",
+  "version": "1.0.0",
+  "description": "AI-powered blog post summarizer using Cloudflare Workers",
+  "main": "src/worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
