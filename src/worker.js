@@ -1,13 +1,17 @@
+const ALLOWED_ORIGIN = 'https://vntechies.dev'
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
+
 const worker = {
   async fetch(request, env) {
     // Handle CORS
     if (request.method === 'OPTIONS') {
       return new Response(null, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type',
-        },
+        headers: corsHeaders,
       })
     }
 
@@ -16,7 +20,7 @@ const worker = {
       return new Response('Method not allowed', {
         status: 405,
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          ...corsHeaders,
           'Content-Type': 'application/json',
         },
       })
@@ -29,8 +33,8 @@ const worker = {
         return new Response(JSON.stringify({ error: 'Nội dung không được để trống' }), {
           status: 400,
           headers: {
+            ...corsHeaders,
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
           },
         })
       }
@@ -59,8 +63,8 @@ const worker = {
 
       return new Response(JSON.stringify({ summary: response.response }), {
         headers: {
+          ...corsHeaders,
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
         },
       })
     } catch (error) {
@@ -73,8 +77,8 @@ const worker = {
         {
           status: 500,
           headers: {
+            ...corsHeaders,
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
           },
         }
       )
