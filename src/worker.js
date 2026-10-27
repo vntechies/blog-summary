@@ -55,7 +55,7 @@ const worker = {
         },
       ]
 
-      const response = await env.AI.run('@cf/meta/llama-2-7b-chat-int8', {
+      const response = await env.AI.run('@cf/meta/llama-3.1-8b-instruct-fp8', {
         messages,
         stream: false,
         max_tokens: 250,

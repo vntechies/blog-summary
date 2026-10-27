@@ -44,6 +44,6 @@ npm run dev
 
 ## Notes
 
-- The worker uses Cloudflare's Llama-2 model for summarization
+- The worker uses Cloudflare's Llama 3.1 8B Instruct model for summarization
 - Make sure to enable Workers AI in your Cloudflare account
 - The worker requires the AI binding in wrangler.toml
